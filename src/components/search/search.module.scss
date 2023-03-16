@@ -8,6 +8,10 @@
   column-gap: 8px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+
+  @media (max-width: 599px) {
+    display: none;
+  }
 }
 
 .input {
@@ -15,6 +19,14 @@
   font: inherit;
   font-size: 18px;
   border: none;
+
+  @media (max-width: 899px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 12px;
+  }
 }
 
 .button {
@@ -47,7 +59,7 @@
 }
 
 .button:hover {
-    svg {
-        opacity: 0.8;
-    }
+  svg {
+    opacity: 0.8;
+  }
 }

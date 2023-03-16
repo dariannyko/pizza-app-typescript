@@ -1,9 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
-import { Search } from "./search/search";
-import { useSelector } from "react-redux";
-import { cartSelector } from "../store/slice/carts-sice";
-import Logo from "../assets/img/pizza-logo.svg";
 import { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Search } from "../search/search";
+import { cartSelector } from "../../store/slice/carts-slice";
+import Logo from "../../assets/img/pizza-logo.svg";
+import styles from "./header.module.scss";
 
 const Header = () => {
   const { items, totalPrice } = useSelector(cartSelector);
@@ -19,23 +20,25 @@ const Header = () => {
   }, [items]);
 
   return (
-    <div className="header">
-      <div className="container">
+    <div className={styles.header}>
+      <div className={styles.container}>
         <Link to="/">
-          <div className="header__logo">
+          <div className={styles.logo}>
             <img width="38" src={Logo} alt="Pizza logo" />
             <div>
               <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <p className={styles.logoDescription}>
+                самая вкусная пицца во вселенной
+              </p>
             </div>
           </div>
         </Link>
         {location.pathname !== "/cart" && (
           <>
             <Search />
-            <div className="header__cart">
+            <div className={styles.cart}>
               <Link to="cart" className="button button--cart">
-                <span>{totalPrice} ₽</span>
+                <span className="button__price">{totalPrice} ₽</span>
                 <div className="button__delimiter"></div>
                 <svg
                   width="18"

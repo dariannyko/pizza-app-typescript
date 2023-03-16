@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { useDispatch } from "react-redux";
-import { setCategoryId } from "../store/slice/filter-slice";
+import { setCategoryId } from "../../store/slice/filter-slice";
+import styles from "./categories.module.scss";
 
 const categories = [
   "Все",
@@ -11,9 +12,9 @@ const categories = [
   "Закрытые",
 ];
 
-type CategoriesProps = {
+interface CategoriesProps {
   categoryId: number;
-};
+}
 
 const Categories = memo(({ categoryId }: CategoriesProps) => {
   const dispatch = useDispatch();
@@ -23,12 +24,12 @@ const Categories = memo(({ categoryId }: CategoriesProps) => {
   };
 
   return (
-    <ul className="categories">
+    <ul className={styles.categories}>
       {categories.map((item, index) => (
         <li
           key={index}
           onClick={() => onChangeCategory(index)}
-          className={categoryId === index ? "active" : ""}
+          className={categoryId === index ? styles.active : ""}
         >
           {item}
         </li>
@@ -38,3 +39,4 @@ const Categories = memo(({ categoryId }: CategoriesProps) => {
 });
 
 export { Categories };
+export type { CategoriesProps };

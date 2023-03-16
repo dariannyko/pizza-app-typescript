@@ -1,20 +1,21 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSort } from "../store/slice/filter-slice";
-import { SortItem } from "../shared/types";
+import { setSort } from "../../store/slice/filter-slice";
+import { SortItem } from "../../shared/types";
+import styles from "./sort.module.scss";
 
 export const sortList: SortItem[] = [
-  { name: "популярности (с высоким рейтингом)", sortProperty: "rating" },
-  { name: "популярности (с низким рейтингом)", sortProperty: "-rating" },
+  { name: "популярности (популярные)", sortProperty: "rating" },
+  { name: "популярности (непопулярные)", sortProperty: "-rating" },
   { name: "цене (сначала дорогие)", sortProperty: "price" },
   { name: "цене (сначала дешевые)", sortProperty: "-price" },
   { name: "алфавиту (с конца)", sortProperty: "title" },
   { name: "алфавиту (с начала)", sortProperty: "-title" },
 ];
 
-type SortProps = {
+interface SortProps {
   sort: SortItem;
-};
+}
 
 const Sort = memo(({ sort }: SortProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +38,8 @@ const Sort = memo(({ sort }: SortProps) => {
     setIsOpen(!isOpen);
   };
   return (
-    <div ref={sortRef} className="sort">
-      <div className="sort__label">
+    <div ref={sortRef} className={styles.sort}>
+      <div className={styles.label}>
         <svg
           width="10"
           height="6"
@@ -55,14 +56,14 @@ const Sort = memo(({ sort }: SortProps) => {
         <span onClick={() => setIsOpen(!isOpen)}>{sort.name}</span>
       </div>
       {isOpen && (
-        <div className="sort__popup">
+        <div className={styles.popup}>
           <ul>
             {sortList.map((item, index) => (
               <li
                 key={index}
                 onClick={() => chooseSortItem(item)}
                 className={
-                  sort.sortProperty === item.sortProperty ? "active" : ""
+                  sort.sortProperty === item.sortProperty ? styles.active : ""
                 }
               >
                 {item.name}
@@ -76,3 +77,4 @@ const Sort = memo(({ sort }: SortProps) => {
 });
 
 export { Sort };
+export type { SortProps };

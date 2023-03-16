@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/home";
+import { Home } from "./pages/home/home";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import NotFound from "./pages/not-found";
-import Cart from "./pages/cart";
-import Pizza from "./pages/pizza";
+import Cart from "./pages/cart/cart";
+import Pizza from "./pages/pizza/pizza";
 
 const router = createBrowserRouter([
   {

@@ -5,13 +5,17 @@
   background-color: $orange;
   border-radius: 30px;
   padding: 10px 20px;
-  min-width: 100px;
   text-align: center;
   cursor: pointer;
   transition: background-color $duration ease-in-out,
     border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
+
+  
+  @media (max-width: 599px) {
+    padding: 8px 15px;
+  }
 
   &,
   span {
@@ -40,9 +44,13 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    min-width: 32px;
     padding: 0;
     border-width: 2px;
+
+    @media (max-width: 599px) {
+      width: 28px;
+      height: 28px;
+    }
   }
 
   &--black {
@@ -57,6 +65,7 @@
   &--outline {
     display: flex;
     align-items: center;
+    justify-content: center;
     column-gap: 6px;
     background-color: #fff;
     border-color: $orange;
@@ -89,6 +98,10 @@
     &:active {
       background-color: darken($orange, 8%);
     }
+
+    @media (max-width: 599px) {
+      column-gap:unset;
+    }
   }
 
   &__delimiter {
@@ -97,12 +110,26 @@
     background-color: rgba(255, 255, 255, 0.25);
     margin-left: 14px;
     margin-right: 14px;
+
+    @media (max-width: 599px) {
+      display: none;
+    }
+  }
+
+  &__price {
+    @media (max-width: 599px) {
+      display: none;
+    }
   }
 
   &--add {
     span {
       font-weight: 600;
       font-size: 16px;
+
+      @media (max-width: 599px) {
+        font-size: 12px;
+      }
     }
 
     &:hover {
@@ -138,7 +165,15 @@
 
     span {
       font-weight: 600;
-      font-size: 16px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 899px) {
+      padding: 6px 18px;
+    }
+
+    @media (max-width: 599px) {
+      padding: 10px 18px;
     }
   }
 }

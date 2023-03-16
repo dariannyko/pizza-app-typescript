@@ -9,7 +9,7 @@ const initialState: FilterState = {
   searchValue: "",
   categoryId: defaultCategory,
   sort: {
-    name: "популярности DESC",
+    name: "популярности (популярные)",
     sortProperty: "rating",
   },
   currentPage: startPage,

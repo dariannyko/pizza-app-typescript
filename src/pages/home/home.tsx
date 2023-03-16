@@ -1,10 +1,23 @@
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { useAppDispatch } from "../store/store";
-import { getPizzas, pizzaSelector } from "../store/slice/pizza-slice";
-import { setCategoryId, setSort, setCurrentPage, filterSelector } from "../store/slice/filter-slice";
-import {Categories, PizzaCard, Skeleton, Pagination, sortList, Sort} from '../components/index';
+import { useAppDispatch } from "../../store/store";
+import { getPizzas, pizzaSelector } from "../../store/slice/pizza-slice";
+import {
+  setCategoryId,
+  setSort,
+  setCurrentPage,
+  filterSelector,
+} from "../../store/slice/filter-slice";
+import {
+  Categories,
+  PizzaCard,
+  Skeleton,
+  Pagination,
+  sortList,
+  Sort,
+} from "../../components/index";
+import styles from './home.module.scss'
 
 const initialProducts = [...new Array(6)];
 export const productsURL = "https://63bde276f5cfc0949b4de042.mockapi.io/items";
@@ -57,27 +70,29 @@ const Home = () => {
   }, [categoryId, sortType, searchValue, currentPage]);
 
   return (
-    <div className="container">
-      <div className="content__top">
+    <>
+      <div className={styles.top}>
         <Categories categoryId={categoryId} />
         <Sort sort={sort} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
-      {error ? (
-        <div className="error-info">
-          <h2 className="error-info__title">Произошла ошибка 😕</h2>
-          <p>
-            К сожалению, не удалось получить пиццы. Попробуйте повторить попытку
-            позже.
-          </p>
-        </div>
-      ) : (
-        <div className="content__items">
-          {status === "loading" ? skeletons : pizzas}
-        </div>
-      )}
-      <Pagination currentPage={currentPage} />
-    </div>
+      <div className="container">
+        <h2 className={styles.title}>Все пиццы</h2>
+        {error ? (
+          <div className={styles.errorInfo}>
+            <h2 className={styles.errorTitle}>Произошла ошибка 😕</h2>
+            <p>
+              К сожалению, не удалось получить пиццы. Попробуйте повторить
+              попытку позже.
+            </p>
+          </div>
+        ) : (
+          <div className={styles.items}>
+            {status === "loading" ? skeletons : pizzas}
+          </div>
+        )}
+        <Pagination currentPage={currentPage} />
+      </div>
+    </>
   );
 };
 

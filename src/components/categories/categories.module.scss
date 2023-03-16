@@ -1,9 +1,22 @@
-@import "../variables";
+@import "../../scss/variables";
 
 .categories {
   display: flex;
   flex-wrap: wrap;
   gap: 15px 10px;
+  margin: 0 auto;
+
+  @media (max-width: 1420px) {
+    width: 90%;
+  }
+
+  @media (max-width: 599px) {
+    width: 100%;
+    flex-wrap: unset;
+    margin: 0 0 0 auto;
+    padding: 0 15px;
+    overflow: scroll;
+  }
 
   li {
     background-color: #f9f9f9;
@@ -12,10 +25,13 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.1s ease-in-out;
-    @include noselect();
+
+    @media (max-width: 599px) {
+      padding: 10px 26px;
+    }
 
     &:hover {
-      background-color: darken(#f9f9f9, 2%);
+      background-color: darken(#f9f9f9, 3%);
     }
 
     &:active {

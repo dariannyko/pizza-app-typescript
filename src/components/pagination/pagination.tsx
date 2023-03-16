@@ -1,11 +1,12 @@
 import ReactPaginate from "react-paginate";
-import styles from "./pagination.module.scss";
-import { setCurrentPage } from "../../store/slice/filter-slice";
 import { useDispatch } from "react-redux";
+import { setCurrentPage } from "../../store/slice/filter-slice";
+import styles from "./pagination.module.scss";
 
 interface PaginationProps {
   currentPage: number;
 }
+
 const Pagination = ({ currentPage }: PaginationProps) => {
   const dispatch = useDispatch();
 
@@ -28,3 +29,4 @@ const Pagination = ({ currentPage }: PaginationProps) => {
 };
 
 export { Pagination };
+export type { PaginationProps };

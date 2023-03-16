@@ -1,9 +1,10 @@
-import cartEmptyImg from "../assets/img/empty-cart.png";
 import { Link } from "react-router-dom";
+import cartEmptyImg from "../../assets/img/empty-cart.png";
+import styles from "./cart-empty.module.scss";
 
 const CartEmpty = () => {
   return (
-    <div className="cart cart--empty">
+    <div className={styles.cartEmpty}>
       <h2>
         Корзина пустая <span>😕</span>
       </h2>

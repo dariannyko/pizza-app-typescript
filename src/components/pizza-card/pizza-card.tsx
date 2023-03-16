@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartItem } from "../../shared/types";
-import { addItem, cartSelector } from "../../store/slice/carts-sice";
+import { addItem, cartSelector } from "../../store/slice/carts-slice";
+import styles from "./pizza-card.module.scss";
 
 const pizzaType = ["тонкое", "традиционное"];
 
 const defaultType = 0;
 const defaultSize = 26;
 
-export interface PizzaCardProps {
+interface PizzaCardProps {
   id: string;
   title: string;
   price: number;
@@ -50,18 +51,18 @@ const PizzaCard = ({
     dispatch(addItem(item));
   };
   return (
-    <div className="pizza-block">
+    <div className={styles.pizzaBlock}>
       <Link to={`/pizza/${id}`}>
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{title}</h4>
+        <img className={styles.image} src={imageUrl} alt="Pizza" />
+        <h4 className={styles.title}>{title}</h4>
       </Link>
-      <div className="pizza-block__selector">
+      <div className={styles.selector}>
         <ul>
           {types.map((item) => (
             <li
               key={item}
               onClick={() => setActiveType(item)}
-              className={activeType === item ? "active" : ""}
+              className={activeType === item ? styles.active : ""}
             >
               {pizzaType[item]}
             </li>
@@ -72,15 +73,15 @@ const PizzaCard = ({
             <li
               key={size}
               onClick={() => setActiveSize(size)}
-              className={activeSize === size ? "active" : ""}
+              className={activeSize === size ? styles.active : ""}
             >
               {size} см.
             </li>
           ))}
         </ul>
       </div>
-      <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price} ₽</div>
+      <div className={styles.bottom}>
+        <div className={styles.price}>от {price} ₽</div>
         <button
           onClick={onClickAdd}
           className="button button--outline button--add"
@@ -106,3 +107,4 @@ const PizzaCard = ({
 };
 
 export { PizzaCard };
+export type { PizzaCardProps };
