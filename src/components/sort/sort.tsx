@@ -39,6 +39,7 @@ const Sort = memo(({ sort }: SortProps) => {
   };
   return (
     <div ref={sortRef} className={styles.sort}>
+      <div>
       <div className={styles.label}>
         <svg
           width="10"
@@ -72,6 +73,8 @@ const Sort = memo(({ sort }: SortProps) => {
           </ul>
         </div>
       )}
+      </div>
+      
     </div>
   );
 });

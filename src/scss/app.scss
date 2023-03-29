@@ -5,6 +5,10 @@
 
 body {
   background-color: $background;
+
+  @media (max-width: 899px) {
+    background-color: #fff;
+  }
 }
 
 .wrapper {

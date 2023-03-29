@@ -37,7 +37,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
+    max-width: 210px;
 
     ul {
       overflow: hidden;
@@ -55,6 +55,11 @@
           color: $orange;
         }
       }
+    }
+
+    @media (max-width: 1420px) {
+      right: unset;
+      left: 145px;
     }
   }
 }
