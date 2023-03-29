@@ -1,36 +1,63 @@
 # Pizza app
 
-**Interface** for Pizza shop website. 
+Интерфейс для магазина пицц, состоящий из двух страниц.
 
-### Used technologies
+### Главная страница
+- Показывает 4 карточки пиццы, отсортированные по популярности
+- Каждая карточка содержит:
+  - название
+  - выбор типа теста
+  - выбор размера
+  - кнопку добавления в корзину (на кнопке высвечивается итоговое количество выбранных пицц) 
+  - цену
+- Пиццы можно отсортировать по популярнсти, цене, алфавиту, а также по типу
+- По клику на корзину происходит переход на страницу корзины
+- На кнопке корзины отображается общее количество добавленных пицц и итоговая стоимость
+- Есть возможность поиска пиццы по названию
+- Добавлена пагинация
+
+### Корзина
+- Содержит:
+  - список добавленных товаров
+  - итогвое кличество пицц и общая стоимость заказа
+  - кнопку Назад
+  - кнопку Оплатить
+  - кнопку Очистить корзину
+- Карточка товара содержит:
+  - возможность увеличить и уменьшить количество пицц
+  - кнопку для удаления всех товаров одного типа
+  - итоговую стоимость
+
+## Технологии
 - JavaScript 
 - TypeScript 
 - React 
 
-### Used libraries
+## Библиотеки
 Redux-Toolkit React-Router Axios React-Content-Loader Lodash
 
 <br>
 
-## Available Scripts
-In the project directory, you can run:
+## Инструкция по запуску
+
+В директории прооекта вы можете запустить: 
 
 ### <code>npm install</code> 
-Install npm
+Установка npm
 ### <code>npm run dev</code> 
-Runs the app in the development mode. \
-Open http://localhost:5173 to view it in the browser. \
+Запускает приложение в режиме разработки. \
+Открыть http://localhost:3000 чтобы просмотреть в вашем браузере. \
 \
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Страница перезагрузится, если вы внесете изменения.\
+Вы также можете увидеть любые ошибки lint в консоли.
 ### <code>npm run build</code>
-Builds the app for production to the build folder. \
-It correctly bundles React in production mode and optimizes the build for the best performance. \
-The build is minified and the filenames include the hashes.\
+Создает приложение для производства в папке build. \
+Он правильно связывает React в рабочем режиме и оптимизирует сборку для достижения наилучшей производительности. \
+Сборка минифицирована, и имена файлов включают хэши. \
 \
-Your app is ready to be deployed!
+Приложение готово к развертыванию!
 
-<br> 
+<br>
 
-## Project Link :
+## Ссылка на проект :
 ✨ **[Pizza App](https://storied-froyo-8044b0.netlify.app/)**
